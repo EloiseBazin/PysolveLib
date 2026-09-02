@@ -1,3 +1,5 @@
+"""Calculates quadratic/cubic roots."""
+
 from cmath import sqrt
 import math
 
@@ -5,7 +7,30 @@ from cowsay import cow
 
 CBRT_UNITY_IM = sqrt(3)/2 * 1j
 
-def quadratic(a, b, c):
+def quadratic(a: float, b: float, c: float) -> tuple[complex,complex]:
+    """Solve quadratic.
+
+    Parameters
+    ----------
+    a
+       :math:`x^2` coefficient.
+    b
+       :math:`x` coefficient.
+    c
+       Constant value.
+
+    Returns
+    -------
+    tuple[float, float]
+        Positive and negative roots of quadratic.
+
+    Examples
+    --------
+    >>> quadratic(1, 2, 0)
+    (0j, (-2-0j))
+    >>> quadratic(3., 0., -1.)
+    ((0.5773502691896257+0j), (-0.5773502691896257-0j))
+    """
     det = b**2 - (4*a*c)
 
     if math.isclose(det, 0):
